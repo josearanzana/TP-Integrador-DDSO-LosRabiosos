@@ -1,12 +1,12 @@
-# Nombre Equipo
+# Los Rabiosos
 
-Integrantes
+Integrantes: Josefina Aranzana, Nicolas Bedacarratz, Gonzalo Bedacarratz, Gonzalo Ventrici
 
 nombre user_git
-1
-2
-3
-4
+1 josearanzana
+2 Nicobeda
+3 Gonzabeda
+4 gonzaloventrici
 
 # Forma de uso
 
