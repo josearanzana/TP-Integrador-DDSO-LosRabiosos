@@ -25,4 +25,10 @@ public class PiezaController {
     public List<Pieza> obtenerPiezas() {
         return piezaService.obtenerTodas();
     }
+
+    @GetMapping("/buscar")
+    public List<Pieza> buscarPorNombre(
+            @RequestParam String nombre) {
+        return piezaService.buscarPorNombre(nombre);
+    }
 }

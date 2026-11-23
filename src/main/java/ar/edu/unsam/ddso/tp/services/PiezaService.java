@@ -27,4 +27,9 @@ public class PiezaService {
     return piezaRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Pieza no encontrada"));
     }
+
+    public List<Pieza> buscarPorNombre(String nombre) {
+    return piezaRepository
+            .findByNombreContainingIgnoreCase(nombre);
+    }
 }
