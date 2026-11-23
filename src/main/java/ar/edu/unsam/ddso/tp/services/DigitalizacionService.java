@@ -30,20 +30,22 @@ public class DigitalizacionService {
     }
 
     public Digitalizacion buscarPorId(Long id) {
-    return digitalizacionRepository.findById(id)
-            .orElseThrow(() ->
-                    new RuntimeException("Digitalizacion no encontrada"));
+        return digitalizacionRepository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Digitalizacion no encontrada"));
     }
 
     public Digitalizacion agregarTag(
         Long digitalizacionId,
         Tag tag) {
-
-    Digitalizacion digitalizacion =
-            buscarPorId(digitalizacionId);
-
-    digitalizacion.agregarTag(tag);
-
-    return digitalizacionRepository.save(digitalizacion);
+        Digitalizacion digitalizacion =
+                buscarPorId(digitalizacionId);
+        digitalizacion.agregarTag(tag);
+        return digitalizacionRepository.save(digitalizacion);
+    }
+    
+    public List<Digitalizacion> buscarPorTag(String tag) {
+        return digitalizacionRepository
+                .findByTagsNombre(tag);
     }
 }

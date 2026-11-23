@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.OneToMany;
+import java.time.LocalDate;
 
 @Entity
 public class Pieza {
@@ -23,11 +24,14 @@ public class Pieza {
     @OneToMany(mappedBy = "pieza") // muchas digitalizaciones pertenecen a una pieza
     private List<Digitalizacion> digitalizaciones = new ArrayList<>();
 
+    private LocalDate fechaAlta;
+
     public Pieza() {}
 
     public Pieza(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.fechaAlta = LocalDate.now();
     }
 
     public Long getId() {return id;}
@@ -35,4 +39,5 @@ public class Pieza {
     public String getDescripcion() {return descripcion;}
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
+    public LocalDate getFechaAlta() {return fechaAlta;}
 }

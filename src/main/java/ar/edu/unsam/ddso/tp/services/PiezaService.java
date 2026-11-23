@@ -4,6 +4,7 @@ import ar.edu.unsam.ddso.tp.models.Pieza;
 import ar.edu.unsam.ddso.tp.repositories.PiezaRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -24,12 +25,22 @@ public class PiezaService {
     }
 
     public Pieza buscarPorId(Long id) {
-    return piezaRepository.findById(id)
+        return piezaRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Pieza no encontrada"));
     }
 
     public List<Pieza> buscarPorNombre(String nombre) {
-    return piezaRepository
+        return piezaRepository
             .findByNombreContainingIgnoreCase(nombre);
     }
+
+    public List<Pieza> buscarPorDescripcion(String descripcion) {
+        return piezaRepository
+            .findByDescripcionContainingIgnoreCase(descripcion);
+    }
+
+    public List<Pieza> buscarPorFecha(LocalDate fecha) {
+        return piezaRepository.findByFechaAlta(fecha);
+    }
+    
 }

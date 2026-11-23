@@ -31,4 +31,18 @@ public class PiezaController {
             @RequestParam String nombre) {
         return piezaService.buscarPorNombre(nombre);
     }
+
+    @GetMapping("/buscarPorDescripcion")
+    public List<Pieza> buscarPorDescripcion(
+            @RequestParam String descripcion) {
+        return piezaService.buscarPorDescripcion(descripcion);
+    }
+
+    @GetMapping("/buscarPorFecha")
+    public List<Pieza> buscarPorFecha(
+            @RequestParam String fecha) {
+        return piezaService.buscarPorFecha(
+                java.time.LocalDate.parse(fecha)
+        );
+    }
 }

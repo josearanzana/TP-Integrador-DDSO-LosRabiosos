@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import ar.edu.unsam.ddso.tp.models.Tag;
 import ar.edu.unsam.ddso.tp.services.TagService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/piezas")
 public class DigitalizacionController {
@@ -51,5 +53,11 @@ public class DigitalizacionController {
                 digitalizacionId,
                 tag
         );
+    }
+
+    @GetMapping("/digitalizaciones/buscar")
+    public List<Digitalizacion> buscarPorTag(
+            @RequestParam String tag) {
+        return digitalizacionService.buscarPorTag(tag);
     }
 }
