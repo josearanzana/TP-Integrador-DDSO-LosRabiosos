@@ -26,7 +26,7 @@ public class Pieza {
 
     private LocalDate fechaAlta;
 
-    public Pieza() {}
+    public Pieza() {this.fechaAlta = LocalDate.now();}
 
     public Pieza(String nombre, String descripcion) {
         this.nombre = nombre;
