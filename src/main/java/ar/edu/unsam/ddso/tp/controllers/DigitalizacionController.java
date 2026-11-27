@@ -60,4 +60,16 @@ public class DigitalizacionController {
             @RequestParam String tag) {
         return digitalizacionService.buscarPorTag(tag);
     }
+
+    @GetMapping("/buscarPiezasPorTag")
+    public List<Pieza> buscarPiezasPorTag(
+            @RequestParam String tag) {
+        return digitalizacionService
+                .buscarPiezasPorTag(tag);
+    }
+
+    @GetMapping("/digitalizaciones")
+    public List<Digitalizacion> obtenerDigitalizaciones() {
+        return digitalizacionService.obtenerTodas();
+    }
 }

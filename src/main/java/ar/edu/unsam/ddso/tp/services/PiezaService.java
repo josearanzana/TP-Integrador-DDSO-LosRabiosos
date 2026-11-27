@@ -26,7 +26,7 @@ public class PiezaService {
 
     public Pieza buscarPorId(Long id) {
         return piezaRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Pieza no encontrada"));
+            .orElseThrow(() -> new IllegalArgumentException("Pieza no encontrada"));
     }
 
     public List<Pieza> buscarPorNombre(String nombre) {

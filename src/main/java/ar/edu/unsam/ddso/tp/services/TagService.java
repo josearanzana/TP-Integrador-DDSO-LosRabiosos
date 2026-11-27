@@ -25,6 +25,6 @@ public class TagService {
 
     public Tag buscarPorId(Long id) {
         return tagRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tag no encontrado"));
+                .orElseThrow(() -> new IllegalArgumentException("Tag no encontrado"));
     }
 }

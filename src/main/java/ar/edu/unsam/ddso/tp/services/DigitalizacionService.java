@@ -32,7 +32,7 @@ public class DigitalizacionService {
     public Digitalizacion buscarPorId(Long id) {
         return digitalizacionRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException("Digitalizacion no encontrada"));
+                        new IllegalArgumentException("Digitalizacion no encontrada"));
     }
 
     public Digitalizacion agregarTag(
@@ -47,5 +47,14 @@ public class DigitalizacionService {
     public List<Digitalizacion> buscarPorTag(String tag) {
         return digitalizacionRepository
                 .findByTagsNombre(tag);
+    }
+
+    public List<Pieza> buscarPiezasPorTag(String nombreTag) {
+        return digitalizacionRepository
+                .findByTagsNombre(nombreTag)
+                .stream()
+                .map(Digitalizacion::getPieza)
+                .distinct()
+                .toList();
     }
 }
