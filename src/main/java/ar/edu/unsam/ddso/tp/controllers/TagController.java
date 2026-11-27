@@ -1,7 +1,6 @@
 package ar.edu.unsam.ddso.tp.controllers;
 
-import ar.edu.unsam.ddso.tp.models.Pieza;
-import ar.edu.unsam.ddso.tp.models.Tag;
+import ar.edu.unsam.ddso.tp.models.*;
 import ar.edu.unsam.ddso.tp.services.TagService;
 import org.springframework.web.bind.annotation.*;
 
